@@ -1,0 +1,46 @@
+import React, { Component } from 'react';
+import MovieImg from './assets/Image/movie_img.png';
+import MOCK_MOVIES from './Shared/MockMovies';
+import MovieList from './MovieList';
+import MoviePoster from './MoviePoster';
+import MoviePlot from './MoviePlot';
+
+
+
+class App extends Component {
+  state = {
+    movies : MOCK_MOVIES,
+    selectedMovie : null
+  };
+  
+  onSelectedMovieCallBack = (movie) => {
+    this.setState({selectedMovie : movie})
+  }
+  
+  
+  render() {
+    return (
+      <div className="App">
+        <div className="mt-3 p-4 bg-dark text-white rounded">
+          <h1>React Movies <img alt="Movie" src={MovieImg}></img> </h1>  
+           This small App demonstrates communication between child-components using Input/Output
+        </div> 
+        <div className='row mt-4'>
+          <div className='col-sm-6'>
+        <MovieList onSelectedMovie ={this.onSelectedMovieCallBack} />
+        </div>
+        <div className='col-sm-6'>
+        <MoviePoster movie={this.state.selectedMovie}/>
+        </div>
+        </div>
+        <div className='row'>
+          <div className='col-sm-12'>
+        <MoviePlot movie = {this.state.selectedMovie}/>
+        </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default App
