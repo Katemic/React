@@ -21,4 +21,6 @@ export { useFetchHighestRatedMoviesQuery } from './apis/movieApi';
 export {changeSearchTerm} from './searchMovieSlice';
 export {useFetchSearchMovieQuery} from './apis/movieApi';
 export {useFetchUpcomingMoviesQuery} from './apis/movieApi';
+export {useFetchPopularTvShowsQuery} from './apis/movieApi';
+export {useFetchMovieTrailerQuery} from './apis/movieApi';
 export type RootState = ReturnType<typeof store.getState>

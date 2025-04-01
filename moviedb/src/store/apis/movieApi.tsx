@@ -141,7 +141,7 @@ const moviesApi = createApi({
           return {
             url: 'discover/tv',
             params: {
-              sort_by: 'vote_average.desc',
+              sort_by: 'popularity.desc',
               api_key: '81c50c197b83129dd4fc387ca6c8c323'
             },
             method: 'GET',
@@ -169,6 +169,21 @@ const moviesApi = createApi({
 
       }),
 
+      fetchMovieTrailer: builder.query<string | null, number>({
+        query: (movieId) => ({
+          url: `movie/${movieId}/videos`,
+          params: {
+            api_key: '81c50c197b83129dd4fc387ca6c8c323',
+          },
+          method: 'GET',
+        }),
+        transformResponse(response: { results: any[] }): string | null {
+          const trailer = response.results.find(
+            (video) => video.type === 'Trailer' && video.site === 'YouTube'
+          );
+          return trailer ? trailer.key : null;
+        },
+      }),
 
 
     };
@@ -179,4 +194,6 @@ export const {useFetchPopularMoviesQuery} = moviesApi;
 export const {useFetchHighestRatedMoviesQuery} = moviesApi;
 export const {useFetchSearchMovieQuery} = moviesApi;
 export const {useFetchUpcomingMoviesQuery} = moviesApi;
+export const {useFetchPopularTvShowsQuery} = moviesApi;
+export const {useFetchMovieTrailerQuery} = moviesApi;
 export { moviesApi };
