@@ -53,7 +53,15 @@ function SearchMovie() {
     dispatch(changeSearchType(localSearchType));
 
     // Navigate to the results page
-    navigate("/searchedMovie"); //flere sider at navigere til
+    if (localSearchType === "title") {
+      navigate("/searchedMovie");
+    }
+    else if (localSearchType === "genre") {
+      navigate("/searchedGenre"); // Navigate to the genre search results page
+    }
+    else if (localSearchType === "instructor") {
+      navigate("/searchedDirector"); // Navigate to the instructor search results page
+    }
   };
 
   return (

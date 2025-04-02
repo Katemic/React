@@ -46,20 +46,19 @@
       "vote_count": 30
     },
     {
-      "id": "822119",
+      "id": "447273",
       "adult": false,
       "genre_ids": [
-        28,
-        53,
-        878
+        10751,
+        14
       ],
-      "overview": "After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
-      "popularity": 367.7729,
-      "poster_path": "/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg",
-      "release_date": "2025-02-12",
-      "title": "Captain America: Brave New World",
-      "vote_average": 6.102,
-      "vote_count": 1174
+      "overview": "Princess Snow White flees the castle when the Evil Queen, in her jealousy over Snow White's inner beauty, tries to kill her. Deep into the dark woods, she stumbles upon seven magical dwarves and a young thief named Jonathan. Together, they strive to survive the Queen's relentless pursuit and aspire to take back the kingdom in the process.",
+      "popularity": 207.6622,
+      "poster_path": "/xWWg47tTfparvjK0WJNX4xL8lW2.jpg",
+      "release_date": "2025-03-19",
+      "title": "Snow White",
+      "vote_average": 4.4,
+      "vote_count": 452
     }
   ]
 }

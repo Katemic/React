@@ -13,6 +13,8 @@ import SearchedMovieList from './components/searchedMovieList';
 import UpcomingMovies from './components/upcomingMovies';
 import PopularTvShowList from './components/popularTvShows';
 import FavoriteMovieList from './components/favoriteMovieList';
+import SearchedGenreList from './components/searchedGenreList';
+import SearchedDirectorList from './components/searchedDirectorList';
 
 
 
@@ -45,6 +47,8 @@ function App() {
             <Route path='/upcoming' element={<UpcomingMovies/>} />     
             <Route path='/tvshowsPopular' element={<PopularTvShowList/>} />
             <Route path='/favoriteMovie' element={<FavoriteMovieList/>} />
+            <Route path='/searchedGenre' element={<SearchedGenreList/>} />
+            <Route path='/searchedDirector' element={<SearchedDirectorList/>} />
 
             </Routes>
       

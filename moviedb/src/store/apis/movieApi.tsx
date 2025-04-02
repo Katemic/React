@@ -196,7 +196,27 @@ const moviesApi = createApi({
             },
             method: 'GET',
           }
-        }
+        },
+        transformResponse(response: { results: any[] }): Movie[] {
+          const director = response.results.find((person) =>
+              person.known_for_department === 'Directing'
+          );
+
+          if (!director) return [];
+
+          return director.known_for.map((movie: any) => ({
+            adult: movie.adult,
+            genre_ids: movie.genre_ids,
+            id: String(movie.id),
+            overview: movie.overview,
+            popularity: movie.popularity,
+            poster_path: movie.poster_path,
+            release_date: movie.release_date,
+            title: movie.title,
+            vote_average: movie.vote_average,
+            vote_count: movie.vote_count
+          }));
+      },
 
       }),
 
@@ -228,7 +248,52 @@ const moviesApi = createApi({
             };
           });
         }
-      })
+      }),
+
+
+      // fetchSearchDirector: builder.query<Movie[], string>({
+      //   query: (searchTerm) => {
+      //     return {
+      //       url: 'search/person',
+      //       params: {
+      //         query: searchTerm,
+      //         api_key: '81c50c197b83129dd4fc387ca6c8c323',
+      //       },
+      //       method: 'GET',
+      //     };
+      //   },
+      //   transformResponse: async (response: { results: any[] }): Promise<Movie[]> => {
+      //     const director = response.results.find((person) =>
+      //       person.known_for_department === 'Directing'
+      //     );
+      
+      //     // If no director is found, return an empty array
+      //     if (!director) return [];
+      
+      //     // Fetch the complete credits of the director
+      //     const creditsResponse = await fetch(
+      //       `https://api.themoviedb.org/3/person/${director.id}/credits?api_key=81c50c197b83129dd4fc387ca6c8c323`
+      //     );
+      //     const creditsData = await creditsResponse.json();
+      
+      //     // Map over the director's movies from credits data
+      //     return creditsData.crew
+      //       .filter((movie: any) => movie.job === 'Director')  // Filter movies where the person is a director
+      //       .map((movie: any) => ({
+      //         adult: movie.adult,
+      //         genre_ids: movie.genre_ids,
+      //         id: String(movie.id),
+      //         overview: movie.overview,
+      //         popularity: movie.popularity,
+      //         poster_path: movie.poster_path,
+      //         release_date: movie.release_date,
+      //         title: movie.title,
+      //         vote_average: movie.vote_average,
+      //         vote_count: movie.vote_count,
+      //       }));
+      //   },
+      // }),
+
 
 
     };
