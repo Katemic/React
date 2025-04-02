@@ -12,6 +12,9 @@ import SearchMovie from './components/searchMovie';
 import SearchedMovieList from './components/searchedMovieList';
 import UpcomingMovies from './components/upcomingMovies';
 import PopularTvShowList from './components/popularTvShows';
+import FavoriteMovieList from './components/favoriteMovieList';
+
+
 
 function App() {
   return (
@@ -28,6 +31,7 @@ function App() {
             <Link to='/highest-rated' className="nav-item nav-link">Highest Rated</Link>
             <Link to='/upcoming' className="nav-item nav-link">Upcoming</Link>
             <Link to='/tvshowsPopular' className="nav-item nav-link">Tv Shows</Link>
+            <Link to='/favoriteMovie' className="nav-item nav-link">Favorite movies</Link>
           </nav>
         </div>
           <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75"/></span>
@@ -40,6 +44,8 @@ function App() {
             <Route path='/searchedMovie' element={<SearchedMovieList/>} />  
             <Route path='/upcoming' element={<UpcomingMovies/>} />     
             <Route path='/tvshowsPopular' element={<PopularTvShowList/>} />
+            <Route path='/favoriteMovie' element={<FavoriteMovieList/>} />
+
             </Routes>
       
     </div>

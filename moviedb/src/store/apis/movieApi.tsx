@@ -26,7 +26,7 @@ const moviesApi = createApi({
             return {
               adult: movie.adult,
               genre_ids: movie.genre_ids,
-              id: movie.id,
+              id: String(movie.id),
               overview: movie.overview,
               popularity: movie.popularity,
               poster_path: movie.poster_path,
@@ -58,7 +58,7 @@ const moviesApi = createApi({
             return {
               adult: movie.adult,
               genre_ids: movie.genre_ids,
-              id: movie.id,
+              id: String(movie.id),
               overview: movie.overview,
               popularity: movie.popularity,
               poster_path: movie.poster_path,
@@ -89,7 +89,7 @@ const moviesApi = createApi({
             return {
               adult: movie.adult,
               genre_ids: movie.genre_ids,
-              id: movie.id,
+              id: String(movie.id),
               overview: movie.overview,
               popularity: movie.popularity,
               poster_path: movie.poster_path,
@@ -122,7 +122,7 @@ const moviesApi = createApi({
             return {
               adult: movie.adult,
               genre_ids: movie.genre_ids,
-              id: movie.id,
+              id: String(movie.id),
               overview: movie.overview,
               popularity: movie.popularity,
               poster_path: movie.poster_path,
@@ -186,6 +186,51 @@ const moviesApi = createApi({
       }),
 
 
+      fetchSearchDirector: builder.query<Movie[], string>({
+        query: (searchTerm) => {
+          return {
+            url: 'search/person',
+            params: {
+              query: searchTerm,
+              api_key: '81c50c197b83129dd4fc387ca6c8c323'
+            },
+            method: 'GET',
+          }
+        }
+
+      }),
+
+      fetchSearchGenre: builder.query<Movie[], string>({
+        query: (searchTerm) => {
+          return {
+            url: 'discover/movie',
+            params: {
+              with_genres: searchTerm,
+              sort_by: 'popularity.desc',
+              api_key: '81c50c197b83129dd4fc387ca6c8c323'
+            },
+            method: 'GET',
+          }
+        },
+        transformResponse(response: MovieResult): Movie[] {
+          return response.results.map((movie: MovieResponse) => {
+            return {
+              adult: movie.adult,
+              genre_ids: movie.genre_ids,
+              id: String(movie.id),
+              overview: movie.overview,
+              popularity: movie.popularity,
+              poster_path: movie.poster_path,
+              release_date: movie.release_date,
+              title: movie.title,
+              vote_average: movie.vote_average,
+              vote_count: movie.vote_count
+            };
+          });
+        }
+      })
+
+
     };
   },
 });
@@ -196,4 +241,6 @@ export const {useFetchSearchMovieQuery} = moviesApi;
 export const {useFetchUpcomingMoviesQuery} = moviesApi;
 export const {useFetchPopularTvShowsQuery} = moviesApi;
 export const {useFetchMovieTrailerQuery} = moviesApi;
+export const {useFetchSearchDirectorQuery} = moviesApi;
+export const {useFetchSearchGenreQuery} = moviesApi;
 export { moviesApi };

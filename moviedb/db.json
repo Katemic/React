@@ -1,0 +1,65 @@
+{
+  "favoritMovies": [
+    {
+      "id": "1125899",
+      "adult": false,
+      "genre_ids": [
+        28,
+        53
+      ],
+      "overview": "When a group of radical activists take over an energy company's annual gala, seizing 300 hostages, an ex-soldier turned window cleaner suspended 50 storeys up on the outside of the building must save those trapped inside, including her younger brother.",
+      "popularity": 441.6987,
+      "poster_path": "/2KIqFpvjVI6mNBTQw7MYZdzRYvs.jpg",
+      "release_date": "2025-02-19",
+      "title": "Cleaner",
+      "vote_average": 6.832,
+      "vote_count": 131
+    },
+    {
+      "id": "1165067",
+      "adult": false,
+      "genre_ids": [
+        53,
+        878
+      ],
+      "overview": "Battles in virtual reality, survival in a post-apocalyptic wasteland, a Soviet spaceship giving a distress signal - Fantastic stories created with advanced special effects and passion.",
+      "popularity": 351.734,
+      "poster_path": "/mClzWv7gBqgXfjZXp49Enyoex1v.jpg",
+      "release_date": "2023-08-03",
+      "title": "Cosmic Chaos",
+      "vote_average": 6.9,
+      "vote_count": 25
+    },
+    {
+      "id": "1229730",
+      "adult": false,
+      "genre_ids": [
+        28,
+        12
+      ],
+      "overview": "By day, they're invisible—valets, hostesses, and bartenders at a luxury hotel. By night, they're the Carjackers, a crew of skilled drivers who track and rob wealthy clients on the road. As they plan their ultimate heist, the hotel director hires a ruthless hitman, to stop them at all costs. With danger closing in, can Nora, Zoe, Steve, and Prestance pull off their biggest score yet?",
+      "popularity": 414.4371,
+      "poster_path": "/6QZ3B6R3PTL54AESD11HfqeFzON.jpg",
+      "release_date": "2025-03-27",
+      "title": "Carjackers",
+      "vote_average": 7,
+      "vote_count": 30
+    },
+    {
+      "id": "822119",
+      "adult": false,
+      "genre_ids": [
+        28,
+        53,
+        878
+      ],
+      "overview": "After meeting with newly elected U.S. President Thaddeus Ross, Sam finds himself in the middle of an international incident. He must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
+      "popularity": 367.7729,
+      "poster_path": "/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg",
+      "release_date": "2025-02-12",
+      "title": "Captain America: Brave New World",
+      "vote_average": 6.102,
+      "vote_count": 1174
+    }
+  ]
+}
