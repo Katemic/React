@@ -251,6 +251,49 @@ const moviesApi = createApi({
       }),
 
 
+      //ikke exportet!!! en test
+      fetchDirectorId: builder.query<number, string>({
+        query: (searchTerm) => {
+          return {
+            url: 'search/person',
+            params: {
+              query: searchTerm,
+              api_key: '81c50c197b83129dd4fc387ca6c8c323',
+            },
+            method: 'GET',
+
+          }
+        }
+      }),
+
+      fetchDirectorMovies: builder.query<Movie[], number>({
+        query: (directorId) => {
+          return {
+            url: `person/${directorId}/movie_credits`,
+            params: {
+              api_key: '81c50c197b83129dd4fc387ca6c8c323',
+            },
+            method: 'GET',
+          };
+        },
+        transformResponse(response: { crew: MovieResponse[] }): Movie[] {
+          return response.crew.filter((movie: any) => movie.job === 'Director').map((movie) => ({
+            adult: movie.adult,
+            genre_ids: movie.genre_ids,
+            id: String(movie.id),
+            overview: movie.overview,
+            popularity: movie.popularity,
+            poster_path: movie.poster_path,
+            release_date: movie.release_date,
+            title: movie.title,
+            vote_average: movie.vote_average,
+            vote_count: movie.vote_count,
+          }));
+        },
+
+      })
+
+
       // fetchSearchDirector: builder.query<Movie[], string>({
       //   query: (searchTerm) => {
       //     return {
