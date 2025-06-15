@@ -15,6 +15,7 @@ import PopularTvShowList from './components/popularTvShows';
 import FavoriteMovieList from './components/favoriteMovieList';
 import SearchedGenreList from './components/searchedGenreList';
 import SearchedDirectorList from './components/searchedDirectorList';
+import ReactTest from './components/reactTest';
 
 
 
@@ -34,6 +35,8 @@ function App() {
             <Link to='/upcoming' className="nav-item nav-link">Upcoming</Link>
             <Link to='/tvshowsPopular' className="nav-item nav-link">Tv Shows</Link>
             <Link to='/favoriteMovie' className="nav-item nav-link">Favorite movies</Link>
+
+            <Link to='/reactTest' className="nav-item nav-link">Test</Link>
           </nav>
         </div>
           <span className='h1'>React Moviefinder <img className="rounded movie_img m-3" src={MovieImg} width="75" height="75"/></span>
@@ -49,6 +52,8 @@ function App() {
             <Route path='/favoriteMovie' element={<FavoriteMovieList/>} />
             <Route path='/searchedGenre' element={<SearchedGenreList/>} />
             <Route path='/searchedDirector' element={<SearchedDirectorList/>} />
+
+            <Route path='/reactTest' element={<ReactTest/>} />
 
             </Routes>
       

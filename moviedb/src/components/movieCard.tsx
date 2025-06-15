@@ -8,7 +8,7 @@ function MovieCard({ movie }) {
 
     const [showTrailer, setShowTrailer] = useState(false);
     const { data: trailerKey, isFetching, error } = useFetchMovieTrailerQuery(movie.id);
-    console.log(trailerKey, isFetching, error);
+    //console.log(trailerKey, isFetching, error);
     const [addFavoriteMovie] = useAddFavoriteMovieMutation();
     const {data : favoriteMovies = []} = useFetchFavoriteMoviesQuery();
     const [removeFavoriteMovie] = useRemoveFavoriteMovieMutation();
